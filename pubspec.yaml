@@ -6,7 +6,7 @@ description: A Flutter package that provides a customizable text input widget fo
   functional chip input field.
 
 version: 0.1.0
-repository: https://https://github.com/EduardoYamauchi/advanced_chips_input
+repository: https://github.com/EduardoYamauchi/advanced_chips_input
 
 environment:
   sdk: ^3.1.0
