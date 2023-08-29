@@ -5,7 +5,7 @@ description: A Flutter package that provides a customizable text input widget fo
   tags, mentions, or any other list of items, this package helps you create a beautiful and 
   functional chip input field.
 
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/EduardoYamauchi/advanced_chips_input
 
 environment:
