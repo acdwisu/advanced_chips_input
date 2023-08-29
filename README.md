@@ -10,17 +10,6 @@ A Flutter package that provides a customizable text input widget for creating ch
 - Customize chip container decoration, text style, and margins.
 - Support for handling backspace key for deleting chips.
 
-## Installation
-
-Add `flutter_advanced_chips_input` to your `pubspec.yaml` file:
-
-```yaml
-dependencies:
-  flutter_advanced_chips_input: ^0.1.0
-```
-
-Then run `flutter packages get` in your terminal.
-
 ## Usage
 
 Import the package:
@@ -29,10 +18,10 @@ Import the package:
 import 'package:flutter_advanced_chips_input/flutter_advanced_chips_input.dart';
 ```
 
-Then, simply include the `SimpleChipsInput` widget in your widget tree:
+Then, simply include the `AdvancedChipsInput` widget in your widget tree:
 
 ```dart
-SimpleChipsInput(
+AdvancedChipsInput(
   separatorCharacter: ' ',
   placeChipsSectionAbove: true,
   widgetContainerDecoration: BoxDecoration(
@@ -58,7 +47,7 @@ SimpleChipsInput(
 
 ## Customization
 
-`SimpleChipsInput` supports a variety of customization options:
+`AdvancedChipsInput` supports a variety of customization options:
 
 - `separatorCharacter`: Character used to separate the output. For example, ' ' will separate the output by space.
 - `placeChipsSectionAbove`: Whether to place the chips section above or below the text field.
@@ -86,7 +75,7 @@ Here is a complete example of a simple Flutter app that uses `flutter_advanced_c
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced_chips_input/flutter_advanced_chips_input.dart';
+import 'package:advanced_chips_input/advanced_chips_input.dart';
 
 void main() => runApp(MyApp());
 
@@ -100,7 +89,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: SimpleChipsInput(
+          child: AdvancedChipsInput(
             separatorCharacter: ' ',
             placeChipsSectionAbove: true,
             widgetContainerDecoration: BoxDecoration(
