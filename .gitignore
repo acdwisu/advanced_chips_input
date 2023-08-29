@@ -3,9 +3,9 @@
 .dart_tool/
 .idea/
 .build/
-.linux/
-.macos/
-.windows/
+linux/
+macos/
+windows/
 *.iml
 *.ipr
 *.iws
