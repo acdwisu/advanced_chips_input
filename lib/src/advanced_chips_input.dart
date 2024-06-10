@@ -217,8 +217,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                   keyboardType: widget.textFormFieldStyle.keyboardType,
                   maxLines: widget.textFormFieldStyle.maxLines,
                   minLines: widget.textFormFieldStyle.minLines,
-                  enableSuggestions: widget.textFormFieldStyle
-                      .enableSuggestions,
+                  enableSuggestions:
+                      widget.textFormFieldStyle.enableSuggestions,
                   showCursor: widget.textFormFieldStyle.showCursor,
                   cursorWidth: widget.textFormFieldStyle.cursorWidth,
                   cursorColor: widget.textFormFieldStyle.cursorColor,
@@ -228,8 +228,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                   onChanged: (value) {
                     if (value.endsWith(widget.createCharacter)) {
                       _controller
-                        ..text = _controller.text.substring(0, _controller.text
-                            .length - 1)
+                        ..text = _controller.text
+                            .substring(0, _controller.text.length - 1)
                         ..selection = TextSelection.fromPosition(
                           TextPosition(offset: _controller.text.length),
                         );
@@ -263,8 +263,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                       if (_formKey!.currentState!.validate()) {
                         setState(() {
                           _chipsText.add(_controller.text);
-                          _output += _controller.text +
-                              widget.separatorCharacter;
+                          _output +=
+                              _controller.text + widget.separatorCharacter;
                           _controller.clear();
                         });
                       }
@@ -281,8 +281,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                       if (_formKey!.currentState!.validate()) {
                         setState(() {
                           _chipsText.add(_controller.text);
-                          _output += _controller.text +
-                              widget.separatorCharacter;
+                          _output +=
+                              _controller.text + widget.separatorCharacter;
                           _controller.clear();
                         });
                       }
