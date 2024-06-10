@@ -1,7 +1,12 @@
 
+
+## [0.1.3] - 2024-06-10
+### Changed
+- Update CHANGELOG.md with a formatted log.
+
 ## [0.1.2] - 2024-06-10
 ### Changed
-- Updated README.md.
+- Updated README.md with an feature image.
 - Changed package description.
 - Updated outdated uses of `RawKeyboardListener` to `KeyboardListener`.
 
