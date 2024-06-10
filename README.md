@@ -119,13 +119,6 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
-                                                                                        
-## Changelogs
-                        
-- 0.1.2 - Update readme, change package description and update outdated uses of  RawKeyboardListener to KeyboardListener.
-- 0.1.1 - Update readme.
-- 0.1.0 - Initial version.
-
 
 ## License
 
