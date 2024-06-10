@@ -1,7 +1,7 @@
 name: advanced_chips_input
 description: Customizable text input widget for creating chips from the text.
 
-version: 0.1.4
+version: 0.1.5
 repository: https://github.com/EduardoYamauchi/advanced_chips_input
 
 environment:

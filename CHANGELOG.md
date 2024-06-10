@@ -1,3 +1,7 @@
+## [0.1.5] - 2024-06-10
+### Changed
+_ Improve code readability by breaking long lines into multiple lines
+
 ## [0.1.4] - 2024-06-10
 ### Changed
 - Enable linter rules for camel_case_types and lines_longer_than_80_chars to enforce code style consistency
