@@ -39,7 +39,7 @@ class AdvancedChipsInput extends StatefulWidget {
 
   final List<TextInputFormatter>? inputFormatters;
 
-  /// Character to seperate the output. For example: ' ' will seperate the output by space.
+  /// Character to separate the output. For example: ' ' will seperate the output by space.
   final String separatorCharacter;
 
   /// Whether to place the chips section above or below the text field.
@@ -111,7 +111,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
   // ignore: prefer_typing_uninitialized_variables
   late final GlobalKey<FormState>? _formKey;
   final List<String> _chipsText = [];
-  late final FocusNode _focusNode;
+  late final FocusNode _textfieldFocusNode;
+  late final FocusNode _keyBoardEventFocusNode;
 
   String _output = '';
 
@@ -120,7 +121,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
     super.initState();
     _controller = widget.controller ?? TextEditingController();
     _formKey = widget.formKey ?? GlobalKey<FormState>();
-    _focusNode = widget.focusNode ?? FocusNode();
+    _textfieldFocusNode = widget.focusNode ?? FocusNode();
+    _keyBoardEventFocusNode = FocusNode();
     if (_controller.text.isNotEmpty) {
       final values = _controller.text.split(widget.separatorCharacter);
       for (final value in values) {
@@ -134,7 +136,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
   @override
   void dispose() {
     _controller.dispose();
-    _focusNode.dispose();
+    _textfieldFocusNode.dispose();
+    _keyBoardEventFocusNode.dispose();
     super.dispose();
   }
 
@@ -189,10 +192,10 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
               if (widget.placeChipsSectionAbove) ...[
                 ..._buildChipsSection(),
               ],
-              RawKeyboardListener(
-                focusNode: FocusNode(),
-                onKey: (event) {
-                  if (event.data.logicalKey.keyLabel == widget.eraseKeyLabel) {
+              KeyboardListener(
+                focusNode: _keyBoardEventFocusNode,
+                onKeyEvent: (event) {
+                  if (event.logicalKey.keyLabel == widget.eraseKeyLabel) {
                     if (_controller.text.isEmpty && _chipsText.isNotEmpty) {
                       setState(_chipsText.removeLast);
                     }
@@ -200,7 +203,7 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                 },
                 child: TextFormField(
                   autofocus: widget.autoFocus,
-                  focusNode: _focusNode,
+                  focusNode: _textfieldFocusNode,
                   controller: _controller,
                   keyboardType: widget.textFormFieldStyle.keyboardType,
                   maxLines: widget.textFormFieldStyle.maxLines,
