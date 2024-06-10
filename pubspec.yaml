@@ -1,9 +1,7 @@
 name: advanced_chips_input
-description: Provides a customizable text input widget for creating chips from 
-  the text. It supports chip deletion, input validation, and a variety of customization options such
-  as container decoration, chip text style, and delete icon.
+description: Customizable text input widget for creating chips from the text.
 
-version: 0.1.3
+version: 0.1.4
 repository: https://github.com/EduardoYamauchi/advanced_chips_input
 
 environment:

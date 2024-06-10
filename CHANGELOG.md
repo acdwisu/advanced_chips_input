@@ -1,8 +1,6 @@
-
-
-## [0.1.3] - 2024-06-10
+## [0.1.4] - 2024-06-10
 ### Changed
-- Update CHANGELOG.md with a formatted log.
+- Enable linter rules for camel_case_types and lines_longer_than_80_chars to enforce code style consistency
 
 ## [0.1.2] - 2024-06-10
 ### Changed

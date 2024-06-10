@@ -2,7 +2,8 @@ import 'package:advanced_chips_input/src/text_form_field_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/// The [AdvancedChipsInput] widget is a text field that allows the user to input and create chips out of it.
+/// The [AdvancedChipsInput] widget is a text field that allows the
+/// user to input and create chips out of it.
 class AdvancedChipsInput extends StatefulWidget {
   /// Creates a [AdvancedChipsInput] widget.
   ///
@@ -11,8 +12,14 @@ class AdvancedChipsInput extends StatefulWidget {
     super.key,
     this.placeChipsSectionAbove = true,
     this.widgetContainerDecoration = const BoxDecoration(),
-    this.marginBetweenChips = const EdgeInsets.symmetric(horizontal: 2, vertical: 1),
-    this.paddingInsideChipContainer = const EdgeInsets.symmetric(vertical: 8, horizontal: 14),
+    this.marginBetweenChips = const EdgeInsets.symmetric(
+      horizontal: 2,
+      vertical: 1,
+    ),
+    this.paddingInsideChipContainer = const EdgeInsets.symmetric(
+      vertical: 8,
+      horizontal: 14,
+    ),
     this.paddingInsideWidgetContainer = const EdgeInsets.all(8),
     this.chipContainerDecoration = const BoxDecoration(
       color: Colors.blue,
@@ -39,7 +46,8 @@ class AdvancedChipsInput extends StatefulWidget {
 
   final List<TextInputFormatter>? inputFormatters;
 
-  /// Character to separate the output. For example: ' ' will seperate the output by space.
+  /// Character to separate the output. For example:
+  /// ' ' will separate the output by space.
   final String separatorCharacter;
 
   /// Whether to place the chips section above or below the text field.
@@ -98,7 +106,8 @@ class AdvancedChipsInput extends StatefulWidget {
   final void Function(String)? onSubmitted;
   final void Function(String)? onSaved;
 
-  /// Callback when a chip is deleted. Returns the deleted chip content and index.
+  /// Callback when a chip is deleted. Returns the
+  /// deleted chip content and index.
   final void Function(String, int)? onChipDeleted;
 
   @override
@@ -208,7 +217,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                   keyboardType: widget.textFormFieldStyle.keyboardType,
                   maxLines: widget.textFormFieldStyle.maxLines,
                   minLines: widget.textFormFieldStyle.minLines,
-                  enableSuggestions: widget.textFormFieldStyle.enableSuggestions,
+                  enableSuggestions: widget.textFormFieldStyle
+                      .enableSuggestions,
                   showCursor: widget.textFormFieldStyle.showCursor,
                   cursorWidth: widget.textFormFieldStyle.cursorWidth,
                   cursorColor: widget.textFormFieldStyle.cursorColor,
@@ -218,7 +228,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                   onChanged: (value) {
                     if (value.endsWith(widget.createCharacter)) {
                       _controller
-                        ..text = _controller.text.substring(0, _controller.text.length - 1)
+                        ..text = _controller.text.substring(0, _controller.text
+                            .length - 1)
                         ..selection = TextSelection.fromPosition(
                           TextPosition(offset: _controller.text.length),
                         );
@@ -233,7 +244,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                   },
                   decoration: widget.textFormFieldStyle.decoration,
                   validator: (value) {
-                    if (widget.validateInput && widget.validateInputMethod != null) {
+                    if (widget.validateInput &&
+                        widget.validateInputMethod != null) {
                       return widget.validateInputMethod!(value!) as String?;
                     }
                     return null;
@@ -251,7 +263,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                       if (_formKey!.currentState!.validate()) {
                         setState(() {
                           _chipsText.add(_controller.text);
-                          _output += _controller.text + widget.separatorCharacter;
+                          _output += _controller.text +
+                              widget.separatorCharacter;
                           _controller.clear();
                         });
                       }
@@ -268,7 +281,8 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                       if (_formKey!.currentState!.validate()) {
                         setState(() {
                           _chipsText.add(_controller.text);
-                          _output += _controller.text + widget.separatorCharacter;
+                          _output += _controller.text +
+                              widget.separatorCharacter;
                           _controller.clear();
                         });
                       }
