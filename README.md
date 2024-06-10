@@ -2,6 +2,8 @@
 
 A Flutter package that provides a customizable text input widget for creating chips from the text. It supports chip deletion, input validation, and a variety of customization options such as container decoration, chip text style, and delete icon. Whether you want to create a list of tags, mentions, or any other list of items, this package helps you create a beautiful and functional chip input field.
 
+![GIF demonstrating the functionality](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnVwa3dpamx2YjBuZWg2ZzB0ZzQwcGJzb3BscnczMHU1cTFlNmx3biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AKVQoGfgf7rCYaXepY/giphy.gif)
+
 ## Features
 
 - Create chips from text input.
