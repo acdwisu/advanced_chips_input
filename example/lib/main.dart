@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
                 onChipDeleted: (chipText, index) {
                   print('Deleted chip: $chipText at index $index');
                 },
-                textFormFieldStyle: TextFormFieldStyle(
+                textFormFieldStyle: const TextFormFieldStyle(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                   ),
@@ -72,6 +72,10 @@ class MyApp extends StatelessWidget {
                     top: 12
                   )
                 ),
+                initialChipsValue: const [
+                  '13123123',
+                  '6456456456'
+                ],
               ),
             ),
           ],

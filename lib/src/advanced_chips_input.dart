@@ -42,6 +42,7 @@ class AdvancedChipsInput extends StatefulWidget {
     this.onSaved,
     this.onChipDeleted,
     this.inputFormatters,
+    this.initialChipsValue,
   });
 
   final List<TextInputFormatter>? inputFormatters;
@@ -109,6 +110,7 @@ class AdvancedChipsInput extends StatefulWidget {
   /// Callback when a chip is deleted. Returns the
   /// deleted chip content and index.
   final void Function(String, int)? onChipDeleted;
+  final List<String>? initialChipsValue;
 
   @override
   State<AdvancedChipsInput> createState() => _AdvancedChipsInputState();
@@ -132,11 +134,14 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
     _formKey = widget.formKey ?? GlobalKey<FormState>();
     _textfieldFocusNode = widget.focusNode ?? FocusNode();
     _keyBoardEventFocusNode = FocusNode();
+
+    if(widget.initialChipsValue!=null) {
+      _assignValuesToChips(widget.initialChipsValue!);
+    }
+
     if (_controller.text.isNotEmpty) {
       final values = _controller.text.split(widget.separatorCharacter);
-      for (final value in values) {
-        _chipsText.add(value.trim());
-      }
+      _assignValuesToChips(values);
 
       _controller.text = '';
     }
@@ -302,5 +307,12 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
         ),
       ),
     );
+  }
+
+  void _assignValuesToChips(List<String> values) {
+    for (final value in values) {
+      _output += value + widget.separatorCharacter;
+      _chipsText.add(value.trim());
+    }
   }
 }
