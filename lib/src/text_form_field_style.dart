@@ -16,6 +16,7 @@ class TextFormFieldStyle {
       contentPadding: EdgeInsets.zero,
       border: InputBorder.none,
     ),
+    this.margin,
   });
 
   /// The maximum number of lines for the text field.
@@ -47,4 +48,6 @@ class TextFormFieldStyle {
 
   /// The style of the textfield.
   final InputDecoration decoration;
+
+  final EdgeInsets? margin;
 }

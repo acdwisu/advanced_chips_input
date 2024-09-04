@@ -210,85 +210,88 @@ class _AdvancedChipsInputState extends State<AdvancedChipsInput> {
                     }
                   }
                 },
-                child: TextFormField(
-                  autofocus: widget.autoFocus,
-                  focusNode: _textfieldFocusNode,
-                  controller: _controller,
-                  keyboardType: widget.textFormFieldStyle.keyboardType,
-                  maxLines: widget.textFormFieldStyle.maxLines,
-                  minLines: widget.textFormFieldStyle.minLines,
-                  enableSuggestions:
-                      widget.textFormFieldStyle.enableSuggestions,
-                  showCursor: widget.textFormFieldStyle.showCursor,
-                  cursorWidth: widget.textFormFieldStyle.cursorWidth,
-                  cursorColor: widget.textFormFieldStyle.cursorColor,
-                  cursorRadius: widget.textFormFieldStyle.cursorRadius,
-                  cursorHeight: widget.textFormFieldStyle.cursorHeight,
-                  inputFormatters: widget.inputFormatters,
-                  onChanged: (value) {
-                    if (value.endsWith(widget.createCharacter)) {
-                      _controller
-                        ..text = _controller.text
-                            .substring(0, _controller.text.length - 1)
-                        ..selection = TextSelection.fromPosition(
-                          TextPosition(offset: _controller.text.length),
-                        );
-                      if (_formKey!.currentState!.validate()) {
-                        setState(() {
-                          _chipsText.add(_controller.text);
-                          _controller.clear();
-                        });
+                child: Container(
+                  margin: widget.textFormFieldStyle.margin,
+                  child: TextFormField(
+                    autofocus: widget.autoFocus,
+                    focusNode: _textfieldFocusNode,
+                    controller: _controller,
+                    keyboardType: widget.textFormFieldStyle.keyboardType,
+                    maxLines: widget.textFormFieldStyle.maxLines,
+                    minLines: widget.textFormFieldStyle.minLines,
+                    enableSuggestions:
+                        widget.textFormFieldStyle.enableSuggestions,
+                    showCursor: widget.textFormFieldStyle.showCursor,
+                    cursorWidth: widget.textFormFieldStyle.cursorWidth,
+                    cursorColor: widget.textFormFieldStyle.cursorColor,
+                    cursorRadius: widget.textFormFieldStyle.cursorRadius,
+                    cursorHeight: widget.textFormFieldStyle.cursorHeight,
+                    inputFormatters: widget.inputFormatters,
+                    onChanged: (value) {
+                      if (value.endsWith(widget.createCharacter)) {
+                        _controller
+                          ..text = _controller.text
+                              .substring(0, _controller.text.length - 1)
+                          ..selection = TextSelection.fromPosition(
+                            TextPosition(offset: _controller.text.length),
+                          );
+                        if (_formKey!.currentState!.validate()) {
+                          setState(() {
+                            _chipsText.add(_controller.text);
+                            _controller.clear();
+                          });
+                        }
                       }
-                    }
-                    widget.onChanged?.call(value);
-                  },
-                  decoration: widget.textFormFieldStyle.decoration,
-                  validator: (value) {
-                    if (widget.validateInput &&
-                        widget.validateInputMethod != null) {
-                      return widget.validateInputMethod!(value!) as String?;
-                    }
-                    return null;
-                  },
-                  onEditingComplete: () {
-                    widget.onEditingComplete?.call();
-                  },
-                  onFieldSubmitted: (value) {
-                    _output = '';
-                    for (final text in _chipsText) {
-                      // ignore: use_string_buffers
-                      _output += text + widget.separatorCharacter;
-                    }
-                    if (value.isNotEmpty) {
-                      if (_formKey!.currentState!.validate()) {
-                        setState(() {
-                          _chipsText.add(_controller.text);
-                          _output +=
-                              _controller.text + widget.separatorCharacter;
-                          _controller.clear();
-                        });
+                      widget.onChanged?.call(value);
+                    },
+                    decoration: widget.textFormFieldStyle.decoration,
+                    validator: (value) {
+                      if (widget.validateInput &&
+                          widget.validateInputMethod != null) {
+                        return widget.validateInputMethod!(value!) as String?;
                       }
-                    }
-                    widget.onSubmitted?.call(_output);
-                  },
-                  onSaved: (value) {
-                    _output = '';
-                    for (final text in _chipsText) {
-                      // ignore: use_string_buffers
-                      _output += text + widget.separatorCharacter;
-                    }
-                    if (value!.isNotEmpty) {
-                      if (_formKey!.currentState!.validate()) {
-                        setState(() {
-                          _chipsText.add(_controller.text);
-                          _output +=
-                              _controller.text + widget.separatorCharacter;
-                          _controller.clear();
-                        });
+                      return null;
+                    },
+                    onEditingComplete: () {
+                      widget.onEditingComplete?.call();
+                    },
+                    onFieldSubmitted: (value) {
+                      _output = '';
+                      for (final text in _chipsText) {
+                        // ignore: use_string_buffers
+                        _output += text + widget.separatorCharacter;
                       }
-                    }
-                    widget.onSaved?.call(_output);
-                  },
+                      if (value.isNotEmpty) {
+                        if (_formKey!.currentState!.validate()) {
+                          setState(() {
+                            _chipsText.add(_controller.text);
+                            _output +=
+                                _controller.text + widget.separatorCharacter;
+                            _controller.clear();
+                          });
+                        }
+                      }
+                      widget.onSubmitted?.call(_output);
+                    },
+                    onSaved: (value) {
+                      _output = '';
+                      for (final text in _chipsText) {
+                        // ignore: use_string_buffers
+                        _output += text + widget.separatorCharacter;
+                      }
+                      if (value!.isNotEmpty) {
+                        if (_formKey!.currentState!.validate()) {
+                          setState(() {
+                            _chipsText.add(_controller.text);
+                            _output +=
+                                _controller.text + widget.separatorCharacter;
+                            _controller.clear();
+                          });
+                        }
+                      }
+                      widget.onSaved?.call(_output);
+                    },
+                  ),
                 ),
               ),
               if (!widget.placeChipsSectionAbove) ...[
